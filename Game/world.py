@@ -66,7 +66,10 @@ class VictoryTile(MapTile):
        Victory is yours!
        """
 
-world_map = [[None,VictoryTile(1,0),None], [None,EnemyTile(0,2),None],[EnemyTile(0,2),StartTile(1,2),BoringTile(2,2)],[None,EnemyTile(1,3),None]]
+world_map = [[None,VictoryTile(1,0),None],
+             [None,EnemyTile(1,1),None],
+             [EnemyTile(0,2),StartTile(1,2),BoringTile(2,2)],
+             [None,EnemyTile(1,3),None]]
 
 def tile_at(x,y):
     if x<0 or y<0:

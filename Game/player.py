@@ -12,10 +12,10 @@ class Player:
     
     def print_inventory(self):
         print("Inventory:")
-        for items in inventory:
+        for items in self.inventory:
             print('* ' + str(items))
         best_weapon = self.most_powerful_weapon()
-        print("Your best weapoin is your {}".format(best_weapon))
+        print("Your best weapon is your {}".format(best_weapon))
         
     def heal(self):
         consumables = [item for item in self.inventory if isinstance(item,items.Consumable)]
@@ -53,18 +53,26 @@ class Player:
     def move(self, dx, dy):
         self.x += dx
         self.y += dy
-        
-    def move_cardinal(self,direction):
-        if direction in ['n','N']:
-            self.move(dx=0, dy=-1)
-        elif direction in ['s','S']:
-            self.move(dx=0, dy=1)
-        elif direction in ['e','E']:
-            self.move(dx=1, dy=0)
-        elif direction in ['w','W']:
-            self.move(dx=-1, dy=0)
-        else:
-            self.move(dx=0, dy=0)
+
+    def move_north(self):
+        print("Moving North!")
+        self.move(dx=0, dy=-1)
+        print('You are now at ({},{})'.format(self.x, self.y))
+
+    def move_south(self):
+        print("Moving South!")
+        self.move(dx=0, dy=1)
+        print('You are now at ({},{})'.format(self.x, self.y))
+
+    def move_east(self):
+        print("Moving East!")
+        self.move(dx=1, dy=0)
+        print('You are now at ({},{})'.format(self.x,self.y))
+
+    def move_west(self):
+        print("Moving West!")
+        self.move(dx=-1, dy=0)
+        print('You are now at ({},{})'.format(self.x, self.y))
     
     def attack(self):
         best_weapon = self.most_powerful_weapon()
